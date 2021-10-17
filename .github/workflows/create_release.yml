@@ -27,4 +27,4 @@ jobs:
           repo_token: ${{ github.token }}
           file: Apkg/${{ github.event.inputs.file_name }}.apkg
           release_name: ${{ github.event.inputs.file_name }}--NoteType_${{ github.event.inputs.version }}
-          tag: ${{ github.event.inputs.file_name }}
+          tag: ${{ env.GITHUB_SHA }}
