@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       file_name:
-        description: apkg file name (Without '.apkg'. Make sure there's no leading/trailing spaces)
+        description: apkg file name (Without '.apkg')
         required: true
       version:
         description: version string (eg. v6.1)
@@ -21,7 +21,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Get commit SHA
+      - name: Get last commit SHA
         run: echo "LAST_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Create github release
