@@ -21,10 +21,13 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Get commit SHA
+        run: echo "LAST_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
       - name: Create github release
         uses: svenstaro/upload-release-action@2.2.1
         with:
           repo_token: ${{ github.token }}
           file: Apkg/${{ github.event.inputs.file_name }}.apkg
           release_name: ${{ github.event.inputs.file_name }}--NoteType_${{ github.event.inputs.version }}
-          tag: ${{ env.GITHUB_SHA }}
+          tag: ${{ env.LAST_SHA }}
