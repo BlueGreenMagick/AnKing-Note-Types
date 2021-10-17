@@ -23,9 +23,9 @@ jobs:
 
       - name: Set variables
         run: |
-        echo "LAST_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-        file_name="${{ github.event.inputs.file_name }}"
-        echo "WITHOUT_SPACE=${file_name// /_}" >> $GITHUB_ENV
+          echo "LAST_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          file_name="${{ github.event.inputs.file_name }}"
+          echo "WITHOUT_SPACE=${file_name// /_}" >> $GITHUB_ENV
 
       - name: Create github release
         uses: svenstaro/upload-release-action@2.2.1
