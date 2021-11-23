@@ -46,24 +46,24 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 
 <!-- BUTTON FIELDS -->
 {{#Definitions}}
-<a id="l-Definitions" href="#" class="hint"></a>
-<button id="b-Definitions" class="button-general">
+<a id="l-Definitions" href="#" class="hint" onclick='toggleHintBtn("Definitions")'></a>
+<button id="b-Definitions" class="button-general" onclick='toggleHintBtn("Definitions")'>
   <img src="_Anking_v3.png"> Definitions
 </button>
 <div id="h-Definitions" class="hints" style="display: none;">{{edit:Definitions}}</div>
 {{/Definitions}}
 
 {{#Examples}}
-<a id="l-Examples" href="#" class="hint"></a>
-<button id="b-Examples" class="button-general">
+<a id="l-Examples" href="#" class="hint" onclick='toggleHintBtn("Examples")'></a>
+<button id="b-Examples" class="button-general" onclick='toggleHintBtn("Examples")'>
   <img src="_Anking_v3.png"> Examples
 </button>
 <div id="h-Examples" class="hints" style="display: none;">{{edit:Examples}}</div>
 {{/Examples}}
 
 {{#Alternative Translations}}
-<a id="l-Alternative_Translations" href="#" class="hint"></a>
-<button id="b-Alternative_Translations" class="button-general">
+<a id="l-Alternative_Translations" href="#" class="hint" onclick='toggleHintBtn("Alternative_Translations")'></a>
+<button id="b-Alternative_Translations" class="button-general" onclick='toggleHintBtn("Alternative_Translations")'>
   <img src="_Anking_v3.png"> Alternative Translations
 </button>
 <div id="h-Alternative_Translations" class="hints" style="display: none;">{{edit:Alternative Translations}}</div>
@@ -144,7 +144,7 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 <!-- HINT BUTTONS SETUP -->
 <script>
 (function() {
-  const toggleHintBtn = function(id) {
+  window.toggleHintBtn = function(id) {
     const link = document.getElementById(`l-${id}`)
     const button = document.getElementById(`b-${id}`)
     const hint = document.getElementById(`h-${id}`)
@@ -184,13 +184,6 @@ replace the arrows/dashes from the statement below with double curly brackets-->
         toggleHintBtn(id)
       }
     })
-    const clickHandler = (e) => {
-      toggleHintBtn(id);
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    hint.addEventListener("click", clickHandler)
-    button.addEventListener("click", clickHandler)
   }
 
   const hints = document.getElementsByClassName("hints")

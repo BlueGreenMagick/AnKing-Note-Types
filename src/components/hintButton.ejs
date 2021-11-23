@@ -1,5 +1,9 @@
 <%# 
 
+# Components
+## After
+components/hintButtonsSetup
+
 # Parameters
 - name: string
 Name of the field for this hint button.
@@ -7,6 +11,11 @@ Name of the field for this hint button.
 Icon file name. Defaults to "_Anking_v3.png".
 - noText?: boolean
 If true, don't display text on button. Defaults to `false`.
+
+# Notes
+- onclick is attached to the elements instead of in hintsButtonsSetup
+  because in IO one by one, closet removes the listeners attached
+  attached to the element.
 
 _%> 
 <% 
@@ -21,8 +30,8 @@ _%>
   const hintId = `h-${id}`
 _%>
 {{#<%- name %>}}
-<a id="<%- linkId %>" href="#" class="hint"></a>
-<button id="<%- buttonId %>" class="button-general">
+<a id="<%- linkId %>" href="#" class="hint" onclick='toggleHintBtn("<%- id %>")'></a>
+<button id="<%- buttonId %>" class="button-general" onclick='toggleHintBtn("<%- id %>")'>
   <img src="<%- iconSrc %>"> <% if (!noText) { %><%- name %><% } %>
 </button>
 <div id="<%- hintId %>" class="hints" style="display: none;">{{edit:<%- name %>}}</div>

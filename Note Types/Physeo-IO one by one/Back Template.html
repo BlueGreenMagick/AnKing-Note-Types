@@ -42,24 +42,24 @@ var tagID = "XXXYYYZZZ"
 
 <!-- TOGGLE HINT BUTTONS -->
 {{#Extra}}
-<a id="l-Extra" href="#" class="hint"></a>
-<button id="b-Extra" class="button-general">
+<a id="l-Extra" href="#" class="hint" onclick='toggleHintBtn("Extra")'></a>
+<button id="b-Extra" class="button-general" onclick='toggleHintBtn("Extra")'>
   <img src="_PhyseoRoundSmall.png"> Extra
 </button>
 <div id="h-Extra" class="hints" style="display: none;">{{edit:Extra}}</div>
 {{/Extra}}
 
 {{#Personal Notes}}
-<a id="l-Personal_Notes" href="#" class="hint"></a>
-<button id="b-Personal_Notes" class="button-general">
+<a id="l-Personal_Notes" href="#" class="hint" onclick='toggleHintBtn("Personal_Notes")'></a>
+<button id="b-Personal_Notes" class="button-general" onclick='toggleHintBtn("Personal_Notes")'>
   <img src="_PhyseoRoundSmall.png"> Personal Notes
 </button>
 <div id="h-Personal_Notes" class="hints" style="display: none;">{{edit:Personal Notes}}</div>
 {{/Personal Notes}}
 
 {{#Missed Questions}}
-<a id="l-Missed_Questions" href="#" class="hint"></a>
-<button id="b-Missed_Questions" class="button-general">
+<a id="l-Missed_Questions" href="#" class="hint" onclick='toggleHintBtn("Missed_Questions")'></a>
+<button id="b-Missed_Questions" class="button-general" onclick='toggleHintBtn("Missed_Questions")'>
   <img src="_PhyseoRoundSmall.png"> Missed Questions
 </button>
 <div id="h-Missed_Questions" class="hints" style="display: none;">{{edit:Missed Questions}}</div>
@@ -142,7 +142,7 @@ var tagID = "XXXYYYZZZ"
 <!-- HINT BUTTONS SETUP -->
 <script>
 (function() {
-  const toggleHintBtn = function(id) {
+  window.toggleHintBtn = function(id) {
     const link = document.getElementById(`l-${id}`)
     const button = document.getElementById(`b-${id}`)
     const hint = document.getElementById(`h-${id}`)
@@ -182,13 +182,6 @@ var tagID = "XXXYYYZZZ"
         toggleHintBtn(id)
       }
     })
-    const clickHandler = (e) => {
-      toggleHintBtn(id);
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    hint.addEventListener("click", clickHandler)
-    button.addEventListener("click", clickHandler)
   }
 
   const hints = document.getElementsByClassName("hints")

@@ -18,7 +18,7 @@ _%>
 <!-- HINT BUTTONS SETUP -->
 <script>
 (function() {
-  const toggleHintBtn = function(id) {
+  window.toggleHintBtn = function(id) {
     const link = document.getElementById(`l-${id}`)
     const button = document.getElementById(`b-${id}`)
     const hint = document.getElementById(`h-${id}`)
@@ -58,13 +58,6 @@ _%>
         toggleHintBtn(id)
       }
     })
-    const clickHandler = (e) => {
-      toggleHintBtn(id);
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    hint.addEventListener("click", clickHandler)
-    button.addEventListener("click", clickHandler)
   }
 
   const hints = document.getElementsByClassName("hints")

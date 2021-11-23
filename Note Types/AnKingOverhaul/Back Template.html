@@ -96,32 +96,32 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 
 <!-- HINT BUTTON FIELDS -->
 {{#Lecture Notes}}
-<a id="l-Lecture_Notes" href="#" class="hint"></a>
-<button id="b-Lecture_Notes" class="button-general">
+<a id="l-Lecture_Notes" href="#" class="hint" onclick='toggleHintBtn("Lecture_Notes")'></a>
+<button id="b-Lecture_Notes" class="button-general" onclick='toggleHintBtn("Lecture_Notes")'>
   <img src="_Anking_v3.png"> Lecture Notes
 </button>
 <div id="h-Lecture_Notes" class="hints" style="display: none;">{{edit:Lecture Notes}}</div>
 {{/Lecture Notes}}
 
 {{#Missed Questions}}
-<a id="l-Missed_Questions" href="#" class="hint"></a>
-<button id="b-Missed_Questions" class="button-general">
+<a id="l-Missed_Questions" href="#" class="hint" onclick='toggleHintBtn("Missed_Questions")'></a>
+<button id="b-Missed_Questions" class="button-general" onclick='toggleHintBtn("Missed_Questions")'>
   <img src="_Anking_v3.png"> Missed Questions
 </button>
 <div id="h-Missed_Questions" class="hints" style="display: none;">{{edit:Missed Questions}}</div>
 {{/Missed Questions}}
 
 {{#Pathoma}}
-<a id="l-Pathoma" href="#" class="hint"></a>
-<button id="b-Pathoma" class="button-general">
+<a id="l-Pathoma" href="#" class="hint" onclick='toggleHintBtn("Pathoma")'></a>
+<button id="b-Pathoma" class="button-general" onclick='toggleHintBtn("Pathoma")'>
   <img src="_pathoma.icon.png"> 
 </button>
 <div id="h-Pathoma" class="hints" style="display: none;">{{edit:Pathoma}}</div>
 {{/Pathoma}}
 
 {{#Boards and Beyond}}
-<a id="l-Boards_and_Beyond" href="#" class="hint"></a>
-<button id="b-Boards_and_Beyond" class="button-general">
+<a id="l-Boards_and_Beyond" href="#" class="hint" onclick='toggleHintBtn("Boards_and_Beyond")'></a>
+<button id="b-Boards_and_Beyond" class="button-general" onclick='toggleHintBtn("Boards_and_Beyond")'>
   <img src="_b&b.icon.png"> Boards and Beyond
 </button>
 <div id="h-Boards_and_Beyond" class="hints" style="display: none;">{{edit:Boards and Beyond}}</div>
@@ -133,32 +133,32 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 {{/Extra}}<br>
 
 {{#First Aid}}
-<a id="l-First_Aid" href="#" class="hint"></a>
-<button id="b-First_Aid" class="button-general">
+<a id="l-First_Aid" href="#" class="hint" onclick='toggleHintBtn("First_Aid")'></a>
+<button id="b-First_Aid" class="button-general" onclick='toggleHintBtn("First_Aid")'>
   <img src="_first-aid.icon_v2.1.png"> First Aid
 </button>
 <div id="h-First_Aid" class="hints" style="display: none;">{{edit:First Aid}}</div>
 {{/First Aid}}
 
 {{#Sketchy}}
-<a id="l-Sketchy" href="#" class="hint"></a>
-<button id="b-Sketchy" class="button-general">
+<a id="l-Sketchy" href="#" class="hint" onclick='toggleHintBtn("Sketchy")'></a>
+<button id="b-Sketchy" class="button-general" onclick='toggleHintBtn("Sketchy")'>
   <img src="_sketchy.icon.png"> Sketchy
 </button>
 <div id="h-Sketchy" class="hints" style="display: none;">{{edit:Sketchy}}</div>
 {{/Sketchy}}
 
 {{#Pixorize}}
-<a id="l-Pixorize" href="#" class="hint"></a>
-<button id="b-Pixorize" class="button-general">
+<a id="l-Pixorize" href="#" class="hint" onclick='toggleHintBtn("Pixorize")'></a>
+<button id="b-Pixorize" class="button-general" onclick='toggleHintBtn("Pixorize")'>
   <img src="_pixorize.png"> Pixorize
 </button>
 <div id="h-Pixorize" class="hints" style="display: none;">{{edit:Pixorize}}</div>
 {{/Pixorize}}
 
 {{#Physeo}}
-<a id="l-Physeo" href="#" class="hint"></a>
-<button id="b-Physeo" class="button-general">
+<a id="l-Physeo" href="#" class="hint" onclick='toggleHintBtn("Physeo")'></a>
+<button id="b-Physeo" class="button-general" onclick='toggleHintBtn("Physeo")'>
   <img src="_physeologo.icon.png"> 
 </button>
 <div id="h-Physeo" class="hints" style="display: none;">{{edit:Physeo}}</div>
@@ -166,8 +166,8 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 
 <!-- OME FIELD (DISABLED BY DEFAULT) 
   {{#OME}}
-<a id="l-OME" href="#" class="hint"></a>
-<button id="b-OME" class="button-general">
+<a id="l-OME" href="#" class="hint" onclick='toggleHintBtn("OME")'></a>
+<button id="b-OME" class="button-general" onclick='toggleHintBtn("OME")'>
   <img src="_Anking_v3.png"> OME
 </button>
 <div id="h-OME" class="hints" style="display: none;">{{edit:OME}}</div>
@@ -175,8 +175,8 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 -->
 
 {{#Additional Resources}}
-<a id="l-Additional_Resources" href="#" class="hint"></a>
-<button id="b-Additional_Resources" class="button-general">
+<a id="l-Additional_Resources" href="#" class="hint" onclick='toggleHintBtn("Additional_Resources")'></a>
+<button id="b-Additional_Resources" class="button-general" onclick='toggleHintBtn("Additional_Resources")'>
   <img src="_Anking_v3.png"> Additional Resources
 </button>
 <div id="h-Additional_Resources" class="hints" style="display: none;">{{edit:Additional Resources}}</div>
@@ -258,7 +258,7 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 <!-- HINT BUTTONS SETUP -->
 <script>
 (function() {
-  const toggleHintBtn = function(id) {
+  window.toggleHintBtn = function(id) {
     const link = document.getElementById(`l-${id}`)
     const button = document.getElementById(`b-${id}`)
     const hint = document.getElementById(`h-${id}`)
@@ -298,13 +298,6 @@ replace the arrows/dashes from the statement below with double curly brackets-->
         toggleHintBtn(id)
       }
     })
-    const clickHandler = (e) => {
-      toggleHintBtn(id);
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    hint.addEventListener("click", clickHandler)
-    button.addEventListener("click", clickHandler)
   }
 
   const hints = document.getElementsByClassName("hints")

@@ -84,16 +84,16 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 
 
 {{#Personal Notes}}
-<a id="l-Personal_Notes" href="#" class="hint"></a>
-<button id="b-Personal_Notes" class="button-general">
+<a id="l-Personal_Notes" href="#" class="hint" onclick='toggleHintBtn("Personal_Notes")'></a>
+<button id="b-Personal_Notes" class="button-general" onclick='toggleHintBtn("Personal_Notes")'>
   <img src="_Anking_v3.png"> Personal Notes
 </button>
 <div id="h-Personal_Notes" class="hints" style="display: none;">{{edit:Personal Notes}}</div>
 {{/Personal Notes}}
 
 {{#Missed Questions}}
-<a id="l-Missed_Questions" href="#" class="hint"></a>
-<button id="b-Missed_Questions" class="button-general">
+<a id="l-Missed_Questions" href="#" class="hint" onclick='toggleHintBtn("Missed_Questions")'></a>
+<button id="b-Missed_Questions" class="button-general" onclick='toggleHintBtn("Missed_Questions")'>
   <img src="_Anking_v3.png"> Missed Questions
 </button>
 <div id="h-Missed_Questions" class="hints" style="display: none;">{{edit:Missed Questions}}</div>
@@ -106,16 +106,16 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 {{/Extra}}<br>
 
 {{#Textbook}}
-<a id="l-Textbook" href="#" class="hint"></a>
-<button id="b-Textbook" class="button-general">
+<a id="l-Textbook" href="#" class="hint" onclick='toggleHintBtn("Textbook")'></a>
+<button id="b-Textbook" class="button-general" onclick='toggleHintBtn("Textbook")'>
   <img src="_dermki.png"> Textbook
 </button>
 <div id="h-Textbook" class="hints" style="display: none;">{{edit:Textbook}}</div>
 {{/Textbook}}
 
 {{#Additional Resources}}
-<a id="l-Additional_Resources" href="#" class="hint"></a>
-<button id="b-Additional_Resources" class="button-general">
+<a id="l-Additional_Resources" href="#" class="hint" onclick='toggleHintBtn("Additional_Resources")'></a>
+<button id="b-Additional_Resources" class="button-general" onclick='toggleHintBtn("Additional_Resources")'>
   <img src="_dermki.png"> Additional Resources
 </button>
 <div id="h-Additional_Resources" class="hints" style="display: none;">{{edit:Additional Resources}}</div>
@@ -196,7 +196,7 @@ replace the arrows/dashes from the statement below with double curly brackets-->
 <!-- HINT BUTTONS SETUP -->
 <script>
 (function() {
-  const toggleHintBtn = function(id) {
+  window.toggleHintBtn = function(id) {
     const link = document.getElementById(`l-${id}`)
     const button = document.getElementById(`b-${id}`)
     const hint = document.getElementById(`h-${id}`)
@@ -236,13 +236,6 @@ replace the arrows/dashes from the statement below with double curly brackets-->
         toggleHintBtn(id)
       }
     })
-    const clickHandler = (e) => {
-      toggleHintBtn(id);
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    hint.addEventListener("click", clickHandler)
-    button.addEventListener("click", clickHandler)
   }
 
   const hints = document.getElementsByClassName("hints")
